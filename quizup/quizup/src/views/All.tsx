@@ -9,8 +9,8 @@ export default function AllQuestions(){
 
     useEffect( () => {
         fetch("https://cae-bookstore.herokuapp.com/question/all")
-            .then(response => response.text())
-            .then(result => console.log(result))
+            .then(response => response.json())
+            .then(result => setQuestions(result.questions))
             .catch(error => console.log('error', error));
     }, [])
 
